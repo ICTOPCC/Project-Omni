@@ -1,12 +1,47 @@
 from flask import Flask, request, jsonify
 from.helpful_methods import *
+import flask
+import requests
+import cv2
+import threading
+
+app = Flask(__name__)
+URL = "http://192.168.1.244"
+
+frame = None
+
+frame_lock = threading.Lock()
+
+
+
+def start_capture():
+    cap = cv2.VideoCapture(URL + ":81/stream")
+    print(cap)
+    while cap == None:
+        cap = cv2.VideoCapture(URL + ":81/stream")
+        time.sleep(10)
+    global frame
+    while True:
+        success, frame_buffer = cap.read()
+        if success:
+            with frame_lock:
+                frame = frame_buffer
+
+
+
 
 
 app = Flask(__name__)
 omni_modules = []
 @app.route('/')
-def main():
+def world():
     return jsonify("hello world")
+
+@app.route('/video')
+def vid():
+    buffer = cv2.imencode('.jpg', frame)[1].tobytes()
+    return flask.Response(buffer, mimetype='img/jpeg')
+
 
 
 @app.route('/omni_modules')
@@ -20,22 +55,22 @@ def get_omni_modules():
 @app.route('/omni_modules/servo1/door1')
 def toggle_door1():
     omni_modules['servo_door'].Door1()
-    return "OK"
+    return jsonify("OK")
 
 @app.route('/omni_modules/servo1/door2')
 def toggle_door2():
     omni_modules['servo_door'].Door2()
-    return "OK"
+    return jsonify("OK")
 
 @app.route('/omni_modules/servo1/lock1')
 def toggle_lock1():
     omni_modules['servo_door'].Lock1()
-    return "OK"
+    return jsonify("OK")
 
 @app.route('/omni_modules/servo1/lock2')
 def toggle_lock2():
     omni_modules['servo_door'].Lock2()
-    return "OK"
+    return jsonify("OK")
 
 
 if __name__ == '__main__':
@@ -44,6 +79,8 @@ if __name__ == '__main__':
     
     print("Identifying omni modules...")
     print(omni_modules:=helpers.identify_omni_modules())
+    thread1 = threading.Thread(target=start_capture, daemon=True)
+    thread1.start()
 
 
     app.run(host='0.0.0.0', port=1942)
