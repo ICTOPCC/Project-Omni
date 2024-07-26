@@ -6,7 +6,8 @@ app = Flask(__name__)
 omni_modules = []
 @app.route('/')
 def main():
-    return "Hello, world!"
+    return jsonify("hello world")
+
 
 @app.route('/omni_modules')
 def get_omni_modules():
@@ -16,6 +17,25 @@ def get_omni_modules():
     return jsonify(L)
 
 
+@app.route('/omni_modules/servo1/door1')
+def toggle_door1():
+    omni_modules['servo_door'].Door1()
+    return "OK"
+
+@app.route('/omni_modules/servo1/door2')
+def toggle_door2():
+    omni_modules['servo_door'].Door2()
+    return "OK"
+
+@app.route('/omni_modules/servo1/lock1')
+def toggle_lock1():
+    omni_modules['servo_door'].Lock1()
+    return "OK"
+
+@app.route('/omni_modules/servo1/lock2')
+def toggle_lock2():
+    omni_modules['servo_door'].Lock2()
+    return "OK"
 
 
 if __name__ == '__main__':

@@ -16,10 +16,19 @@ class omni_module():
     def name(self):
         return self.post("type?")
 
-    
+
 
 class rasputin(omni_module):
     def __init__(self, port):
         super().__init__(port)
+
+    def Door1(self):
+        return self.post("door1")
+    def Door2(self):
+        return self.post("door2")
+    def Lock1(self):
+        return self.post("lock1")
+    def Lock2(self):
+        return self.post("lock2")
     
     
