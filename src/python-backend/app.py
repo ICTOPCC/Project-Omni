@@ -7,7 +7,7 @@ import threading
 
 app = Flask(__name__)
 URL = "http://192.168.31.18"
-cap = cv2.VideoCapture(URL + ":81/stream")
+#cap = cv2.VideoCapture(URL + ":81/stream")
 
 frame = None
 
@@ -19,12 +19,12 @@ def start_capture():
     requests.get(URL + "/control?var=framesize&val={}".format(8))
     global frame
     while True:
-            if cap.isOpened():
+            """if cap.isOpened():
                 success, frame_buffer = cap.read()
                 if success:
                     with frame_lock:
                         frame = frame_buffer
-                        print("frame acquired")
+                        print("frame acquired")"""
 
 
 
@@ -82,8 +82,8 @@ if __name__ == '__main__':
     
     print("Identifying omni modules...")
     print(omni_modules:=helpers.identify_omni_modules())
-    thread1 = threading.Thread(target=start_capture, daemon=True)
-    thread1.start()
+    #thread1 = threading.Thread(target=start_capture, daemon=True)
+    #thread1.start()
 
 
     app.run(host='0.0.0.0', port=1942)

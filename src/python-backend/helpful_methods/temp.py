@@ -1,7 +1,7 @@
 import serial
 import time
 
-ser = serial.Serial('/dev/ttyACM0', 9600)
+ser = serial.Serial('/dev/ttyACM0', 115200)
 
 ser.write('omni?\n'.encode('utf-8'))
 ser.flush()

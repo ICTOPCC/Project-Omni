@@ -13,7 +13,7 @@ def identify_omni_modules():
     omni_boards:list = {}
     for port in ports:
         try:
-            omni_mod = serial.Serial(port, 9600)
+            omni_mod = serial.Serial(port, 115200)
             omni_mod.write('omni?\n'.encode('utf-8'))
             omni_mod.flush()
             time.sleep(0.1)
@@ -22,7 +22,7 @@ def identify_omni_modules():
                 omni_board = rasputin(omni_mod)
                 omni_boards[omni_board.name()] = omni_board
         except:
-            print(port)
+            continue
     return omni_boards
 
 
