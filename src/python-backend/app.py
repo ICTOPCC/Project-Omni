@@ -17,7 +17,7 @@ def world():
 
 @app.route('/video')
 def vid():
-    with open('/home/gryff1n/Documents/GitHub/Project-Omni/src/python-backend/cam/frame.png', 'rb') as f:
+    with open('~/Documents/GitHub/Project-Omni/src/python-backend/cam/frame.png', 'rb') as f:
         img = f.read()
     buffer = cv2.imencode('.jpg', cv2.imdecode(np.frombuffer(img, np.uint8), cv2.IMREAD_UNCHANGED))[1].tobytes()
     return flask.Response(buffer, mimetype='image/jpeg')

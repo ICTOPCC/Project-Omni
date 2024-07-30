@@ -23,7 +23,7 @@ if __name__ == '__main__':
             _, encoded_image = cv2.imencode('.png', frame)
             
             # Create and save the image file
-            with open("/home/gryff1n/Documents/GitHub/Project-Omni/src/python-backend/cam/frame.png", "wb") as f:
+            with open("~/Documents/GitHub/Project-Omni/src/python-backend/cam/frame.png", "wb") as f:
                 f.write(encoded_image)
 
             im = frame
