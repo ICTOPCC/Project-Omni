@@ -49,3 +49,15 @@ func _on_line_edit_text_submitted(new_text):
 		Link.http.request(req)
 	else:
 		$Panel2/LineEdit.clear()
+
+
+func _mbroom_button_down():
+	get_tree().change_scene_to_file("res://Master Bedroom.tscn")
+
+
+func _on_sbroom_button_down():
+	get_tree().change_scene_to_file("res://Secondary Bedroom.tscn")
+
+
+func _sec_cam_button_down():
+	get_tree().change_scene_to_file("res://Security Cam.tscn")
