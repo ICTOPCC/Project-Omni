@@ -5,8 +5,7 @@ import cv2
 import threading
 
 app = Flask(__name__)
-URL = "http://192.168.1.244"
-cap = cv2.VideoCapture(URL + ":81/stream")
+cap = cv2.VideoCapture("http://192.168.1.3:8080/video")
 frame = None
 
 frame_lock = threading.Lock()
