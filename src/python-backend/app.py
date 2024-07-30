@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
-from.helpful_methods import *
+from .helpful_methods import *
 import flask
-import requests
 import cv2
 import numpy as np
 

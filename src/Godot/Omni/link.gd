@@ -26,4 +26,4 @@ func _image_loaded(result, response_code, headers, body):
 	image.load_jpg_from_buffer(body)
 	var texture:ImageTexture = ImageTexture.create_from_image(image)
 	export_img = texture
-	image_url.request("http://127.0.0.1:2157/video")
+	image_url.request("http://192.168.31.80:1942/video")
