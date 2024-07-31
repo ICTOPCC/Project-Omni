@@ -23,6 +23,8 @@ Link="*res://link.tscn"
 
 window/size/viewport_width=420
 window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 

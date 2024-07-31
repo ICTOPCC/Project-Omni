@@ -1,3 +1,59 @@
-[gd_scene format=3 uid="uid://cv5qqahlgjhb0"]
+[gd_scene load_steps=3 format=3 uid="uid://cv5qqahlgjhb0"]
+
+[ext_resource type="Script" path="res://Button.gd" id="1_dt0yh"]
+[ext_resource type="Script" path="res://Lights.gd" id="1_yvuom"]
 
 [node name="Lights" type="Node2D"]
+script = ExtResource("1_yvuom")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -127.0
+offset_top = -136.0
+offset_right = 603.0
+offset_bottom = 904.0
+
+[node name="CheckButton5" type="CheckButton" parent="Panel"]
+offset_left = 141.0
+offset_top = 349.0
+offset_right = 526.0
+offset_bottom = 421.0
+text = "       Master Bedrooom"
+
+[node name="CheckButton4" type="CheckButton" parent="Panel"]
+offset_left = 141.0
+offset_top = 762.0
+offset_right = 526.0
+offset_bottom = 834.0
+text = "       Washroom"
+
+[node name="CheckButton2" type="CheckButton" parent="Panel"]
+offset_left = 140.0
+offset_top = 554.0
+offset_right = 525.0
+offset_bottom = 626.0
+text = "       Kitchen"
+
+[node name="CheckButton3" type="CheckButton" parent="Panel"]
+offset_left = 139.0
+offset_top = 660.0
+offset_right = 524.0
+offset_bottom = 732.0
+text = "       Living Room"
+
+[node name="CheckButton" type="CheckButton" parent="Panel"]
+offset_left = 141.0
+offset_top = 455.0
+offset_right = 526.0
+offset_bottom = 527.0
+text = "       Secondary Bedroom"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 126.0
+offset_bottom = 87.0
+text = "Back
+"
+script = ExtResource("1_dt0yh")
+
+[connection signal="button_down" from="Button3" to="Button3" method="_on_button_down"]

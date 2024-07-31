@@ -55,6 +55,70 @@ def toggle_lock2():
     resp = omni_modules['servo_door'].Lock2()
     return jsonify(resp)
 
+@app.route('/led1_high')
+def led1_high():
+    resp = omni_modules['servo_door'].post("led1_high")
+    return jsonify(resp)
+
+@app.route('/led1_low')
+def led1_low():
+    resp = omni_modules['servo_door'].post("led1_low")
+    return jsonify(resp)
+
+@app.route('/led2_high')
+def led2_high():
+    resp = omni_modules['servo_door'].post("led2_high")
+    return jsonify(resp)
+
+@app.route('/led2_low')
+def led2_low():
+    resp = omni_modules['servo_door'].post("led2_low")
+    return jsonify(resp)
+
+@app.route('/led3_high')
+def led3_high():
+    resp = omni_modules['servo_door'].post("led3_high")
+    return jsonify(resp)
+
+@app.route('/led3_low')
+def led3_low():
+    resp = omni_modules['servo_door'].post("led3_low")
+    return jsonify(resp)
+
+@app.route('/led4_high')
+def led4_high():
+    resp = omni_modules['servo_door'].post("led4_high")
+    return jsonify(resp)
+
+@app.route('/led4_low')
+def led4_low():
+    resp = omni_modules['servo_door'].post("led4_low")
+    return jsonify(resp)
+
+@app.route('/led5_high')
+def led5_high():
+    resp = omni_modules['servo_door'].post("led5_high")
+    return jsonify(resp)
+
+@app.route('/led5_low')
+def led5_low():
+    resp = omni_modules['servo_door'].post("led5_low")
+    return jsonify(resp)
+
+@app.route('/led6_high')
+def led6_high():
+    resp = omni_modules['servo_door'].post("led6_high")
+    return jsonify(resp)
+
+@app.route('/led6_low')
+def led6_low():
+    resp = omni_modules['servo_door'].post("led6_low")
+    return jsonify(resp)
+
+
+
+
+
 
 if __name__ == '__main__':
     ports = helpers.list_serial_ports()

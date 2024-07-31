@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://dakh8bt3ouo62"]
+[gd_scene load_steps=3 format=3 uid="uid://dakh8bt3ouo62"]
+
+[ext_resource type="Script" path="res://Air Cond.gd" id="1_2fbsn"]
+[ext_resource type="Script" path="res://Button.gd" id="1_37b8a"]
 
 [node name="AirCond" type="Node2D"]
+script = ExtResource("1_2fbsn")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -127.0
+offset_top = -136.0
+offset_right = 603.0
+offset_bottom = 904.0
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 126.0
+offset_bottom = 87.0
+text = "Back
+"
+script = ExtResource("1_37b8a")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 14.0
+offset_top = 213.0
+offset_right = 399.0
+offset_bottom = 285.0
+text = "       Air Conditioner"
+
+[connection signal="button_down" from="Button3" to="Button3" method="_on_button_down"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

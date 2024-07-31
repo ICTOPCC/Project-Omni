@@ -1,4 +1,8 @@
 extends Node
+
+var url = "http://192.168.31.80:1942"
+var req=0
+
 @onready var http:HTTPRequest = HTTPRequest.new()
 var image_url:HTTPRequest = HTTPRequest.new()
 @export var json:JSON

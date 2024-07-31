@@ -19,4 +19,19 @@ offset_bottom = 96.0
 text = "Back
 "
 
+[node name="Panel" type="Panel" parent="Button"]
+offset_left = -127.0
+offset_top = -136.0
+offset_right = 603.0
+offset_bottom = 904.0
+
+[node name="Button" type="Button" parent="Button/Panel"]
+offset_left = 141.0
+offset_top = 162.0
+offset_right = 253.0
+offset_bottom = 223.0
+text = "Back
+"
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button/Panel/Button" to="." method="_on_button_button_down"]

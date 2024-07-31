@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://2y42pofug2u6"]
+[gd_scene load_steps=3 format=3 uid="uid://2y42pofug2u6"]
+
+[ext_resource type="Script" path="res://Secondary Bedroom.gd" id="1_fcqwx"]
+[ext_resource type="Script" path="res://Button.gd" id="1_ubvmx"]
 
 [node name="SecondaryBedroom" type="Node2D"]
+script = ExtResource("1_fcqwx")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -127.0
+offset_top = -136.0
+offset_right = 603.0
+offset_bottom = 904.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 198.0
+offset_right = 398.0
+offset_bottom = 275.0
+text = "Toggle Door"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 317.0
+offset_right = 400.0
+offset_bottom = 394.0
+text = "Toggle Lock
+"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 126.0
+offset_bottom = 87.0
+text = "Back
+"
+script = ExtResource("1_ubvmx")
+
+[connection signal="button_down" from="Button" to="." method="_on_toogle_door_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_lock_button_down"]
+[connection signal="button_down" from="Button3" to="Button3" method="_on_button_down"]
